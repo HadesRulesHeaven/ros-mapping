@@ -1,0 +1,20 @@
+2D mapping
+For Hector SLAM, I first installed the required packages for it to work.
+Further, I made changes in the tutorial.launch file of hector_slam_launch, to make it work with the existing robot and world.
+Launching this file opened rviz. I moved the robot around the map in gazzebo using the controller so that every part of the world could be covered.
+Rviz showed the borders created using the LIDAR.
+
+Stereo-camera
+I added a stereo camera by modifying mobile_manipulator.urdf by adding code for the cameras. 
+The structure of this code was taken from https://classic.gazebosim.org/tutorials?tut=ros_gzplugins
+To confirm that the cameras were working, I opened rviz and added a camera to see the output.
+This showed a few errors, which I later resolved by editing the frames.
+Both cameras were then correctly showing up on rviz
+
+Rtabmap
+I created a launch file for recording the images into a database (Structure taken from http://wiki.ros.org/rtabmap_ros/Tutorials/SetupOnYourRobot#Stereo_B_.28recommended.29)
+I moved the robot around in gazebo using the controller while the launch file created was running.
+This created clouds of data from multiple points on the path of the robot and saved them to the database
+I opened this database in rtabmap.
+Most of the 3D map was fine but some points on the trajectory were off, leading to the clouds being formed in the wrong location. I was not able to fix this error.
+I tried to create occupancy grid by using "Export 2D grid map" in rtabmap but the option was disabled. I was not able to resolve this issue.
