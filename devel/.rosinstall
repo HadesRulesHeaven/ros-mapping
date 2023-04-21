@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ritvik/catkin_ws/devel/setup.sh
